@@ -1,2 +1,3 @@
+Tenable can assess **network device configuration compliance** against defined security baselines for devices such as **routers, switches, and firewalls**.
 
-please create power point 1 slide as image attached file design to easy easy and understand point
+**Example:** Tenable can check whether a Cisco router has SSH enabled, Telnet disabled, and NTP and logging properly configured according to the baseline.
