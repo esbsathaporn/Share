@@ -10,7 +10,7 @@
   1.8 column H CSF 2.0 Subcatalog Description
   1.9 column I Key Activity (บอกว่าใน control id นี้ให้ทำอะไร เกี่ยวข้องกับการ config หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร)
   1.10 column J Key Activity (เป็นภาษาไทย) ขอไม่ยาวมาก แต่เน้นๆไปว่าต้อง config อะไร หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร
-2. ทำทั้งหมด 20 control และ 1196 control list
+2. ทำทั้งหมด 20 control และ 1196 control list หรือใกล้เคียงให้มากที่สุด
 3. column K แยกว่าใน control id นั้นเกี่ยวข้องกับ IT ในส่วนไหน เช่น cloud, network, db, infra หรืออื่นๆที่เกี่ยวข้อง
 4. column L ให้บอกว่าเกี่ยวข้องกับ config baseline มากน้อยแค่ไหนในหัวข้อ control id นี้
 5. สร้างอีก sheet เป็น introduction โดยมีเนื้อหาดังนี้
