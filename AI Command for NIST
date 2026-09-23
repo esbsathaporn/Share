@@ -1,1 +1,22 @@
-
+สร้างไฟล์ excel เกี่ยวกับการทำ configuration baseline โดยใช้ NIST SP 800-53 v5.2 เป็น standard baseline โดยมีรายละเอียดดังนี้
+1. แยกหัวข้อดังนี้
+  1.1 column A Control ID New โดย matching ใหม่กับ control id เดิม เช่น control id เดิม AC-01 ให้ใส่เป็น ESBIT-AC-01
+  1.2 column B Conborl ID
+  1.3 column C Contorl family
+  1.4 column D Control name
+  1.5 column E CSF 2.0 Function
+  1.6 column F CSF 2.0 Catelog
+  1.7 column G CSF 2.0 Subcatalog ID
+  1.8 column H CSF 2.0 Subcatalog Description
+  1.9 column I Key Activity (บอกว่าใน control id นี้ให้ทำอะไร เกี่ยวข้องกับการ config หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร)
+  1.10 column J Key Activity (เป็นภาษาไทย) ขอไม่ยาวมาก แต่เน้นๆไปว่าต้อง config อะไร หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร
+2. ทำทั้งหมด 20 control และ 1196 control list
+3. column K แยกว่าใน control id นั้นเกี่ยวข้องกับ IT ในส่วนไหน เช่น cloud, network, db, infra หรืออื่นๆที่เกี่ยวข้อง
+4. column L ให้บอกว่าเกี่ยวข้องกับ config baseline มากน้อยแค่ไหนในหัวข้อ control id นี้
+5. สร้างอีก sheet เป็น introduction โดยมีเนื้อหาดังนี้
+  5.1 อธิบายเกี่ยวกับ config baseline ที่จะทำ ว่าจัดทำเพื่อให้มีการ config เป็นไปตาม security baseline (ช่วยคิดประโยค)
+  5.2 อธิบายเกี่ยวกับ 20 control id ว่ามีอะไรบ้าง เกี่ยวข้องกับอะไรบ้างในการทำ config baseline
+  5.3 อธิบายเกี่ยวกับ CSF 2.0 ทั้ง 6 pillar ว่ามีอะไรบ้าง เกี่ยวจข้องกับอะไรบ้างในการทำ config baseline
+  5.4 จัดทำระดับ Level มีทั้งหมด 3 Level โดย 1 คือแรงสุด ต้องทำ ต้องมีอยู่ใน config 3 คือได้รับผลกระทบน้อยสุด
+6. เนื้อหาทั้งหมดเป็นภาษาอังกฤษ แต่ column J เป็นภาษาไทย
+7. ทั้งหมดเป็น font calibri 14
