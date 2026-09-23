@@ -1,1 +1,1 @@
-For share everything with another pc
+For share everything with Speed Desktop PC
