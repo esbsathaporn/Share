@@ -9,3 +9,6 @@ Passcode: mG6gc3bo
 ________________________________________
 Need help? | System reference 
 For organizers: Meeting options 
+
+
+docker-compose -f docker-compose-migration-tool.yml up --pull always
