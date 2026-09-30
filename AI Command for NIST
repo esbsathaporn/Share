@@ -1,22 +1,73 @@
-สร้างไฟล์ excel เกี่ยวกับการทำ configuration baseline โดยใช้ NIST SP 800-53 v5.2 เป็น standard baseline โดยมีรายละเอียดดังนี้
-1. แยกหัวข้อดังนี้
-  1.1 column A Control ID New โดย matching ใหม่กับ control id เดิม เช่น control id เดิม AC-01 ให้ใส่เป็น ESBIT-AC-01
-  1.2 column B Conborl ID
-  1.3 column C Contorl family
-  1.4 column D Control name
-  1.5 column E CSF 2.0 Function
-  1.6 column F CSF 2.0 Catelog
-  1.7 column G CSF 2.0 Subcatalog ID
-  1.8 column H CSF 2.0 Subcatalog Description
-  1.9 column I Key Activity (บอกว่าใน control id นี้ให้ทำอะไร เกี่ยวข้องกับการ config หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร)
-  1.10 column J Key Activity (เป็นภาษาไทย) ขอไม่ยาวมาก แต่เน้นๆไปว่าต้อง config อะไร หากไม่เกี่ยวกับการ config ให้บอกว่าเกี่ยวกับอะไร
-2. ทำทั้งหมด 20 control และ 1196 control list หรือใกล้เคียงให้มากที่สุด
-3. column K แยกว่าใน control id นั้นเกี่ยวข้องกับ IT ในส่วนไหน เช่น cloud, network, db, infra หรืออื่นๆที่เกี่ยวข้อง
-4. column L ให้บอกว่าเกี่ยวข้องกับ config baseline มากน้อยแค่ไหนในหัวข้อ control id นี้
-5. สร้างอีก sheet เป็น introduction โดยมีเนื้อหาดังนี้
-  5.1 อธิบายเกี่ยวกับ config baseline ที่จะทำ ว่าจัดทำเพื่อให้มีการ config เป็นไปตาม security baseline (ช่วยคิดประโยค)
-  5.2 อธิบายเกี่ยวกับ 20 control id ว่ามีอะไรบ้าง เกี่ยวข้องกับอะไรบ้างในการทำ config baseline
-  5.3 อธิบายเกี่ยวกับ CSF 2.0 ทั้ง 6 pillar ว่ามีอะไรบ้าง เกี่ยวจข้องกับอะไรบ้างในการทำ config baseline
-  5.4 จัดทำระดับ Level มีทั้งหมด 3 Level โดย 1 คือแรงสุด ต้องทำ ต้องมีอยู่ใน config 3 คือได้รับผลกระทบน้อยสุด
-6. เนื้อหาทั้งหมดเป็นภาษาอังกฤษ แต่ column J เป็นภาษาไทย
-7. ทั้งหมดเป็น font calibri 14
+Access Control (AC)
+AC-02, AC-02(01), AC-02(03), AC-02(04), AC-02(05), AC-02(07), AC-02(11), AC-02(12)
+AC-03, AC-03(02), AC-03(07), AC-03(13), AC-03(15)
+AC-04, AC-04(01), AC-04(21), AC-04(26)
+AC-06, AC-06(02), AC-06(03), AC-06(07), AC-06(09), AC-06(10)
+AC-07, AC-12
+AC-17(01), AC-17(02)
+AC-21
+
+Audit and Accountability (AU)
+AU-02, AU-03, AU-04(01)
+AU-06(01), AU-06(03), AU-06(04), AU-06(05)
+AU-07(01)
+AU-09, AU-09(02), AU-09(03), AU-09(07)
+AU-10
+AU-12, AU-12(01), AU-12(02)
+AU-14, AU-14(01)
+
+Assessment, Authorization, and Monitoring (CA)
+CA-07
+CA-09(01)
+
+Configuration Management (CM)
+CM-02
+CM-03, CM-03(06)
+CM-05(01)
+CM-06(01)
+CM-07
+CM-08, CM-08(01), CM-08(02), CM-08(03)
+
+Contingency Planning (CP)
+CP-02(02), CP-02(06)
+CP-06, CP-06(01), CP-06(02)
+CP-09
+CP-10
+
+Identification and Authentication (IA)
+IA-02(01), IA-02(02), IA-02(06), IA-02(08)
+IA-05(01)
+
+Incident Response (IR)
+IR-04(01)
+IR-04(05)
+
+Risk Assessment (RA)
+RA-03(04)
+
+System and Services Acquisition (SA)
+SA-03
+SA-08(14), SA-08(19), SA-08(21), SA-08(22), SA-08(23)
+SA-15(05)
+SA-17(07)
+
+System and Communications Protection (SC)
+SC-05, SC-05(02), SC-05(03)
+SC-07, SC-07(03), SC-07(04), SC-07(05), SC-07(09), SC-07(11), SC-07(16), SC-07(20), SC-07(21)
+SC-08, SC-08(01), SC-08(02)
+SC-12, SC-12(02), SC-12(03), SC-12(06)
+SC-13
+SC-17
+SC-23
+SC-28, SC-28(01)
+SC-36
+
+System and Information Integrity (SI)
+SI-02, SI-02(02)
+SI-04, SI-04(01), SI-04(02), SI-04(04), SI-04(05), SI-04(11), SI-04(12), SI-04(18), SI-04(20), SI-04(22), SI-04(25)
+SI-07(01), SI-07(06), SI-07(07), SI-07(08)
+SI-12
+SI-13(05)
+SI-20
+
+ช่วยเอา control id ไปใส่ใน slide ตามหัวข้อ และช่วย design ใหม่หน่อยให้เข้าใจง่าย เช่น control นี้มีกี่ control id และ มี control id อะไรบ้าง
