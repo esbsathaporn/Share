@@ -146,3 +146,22 @@ SI-07(09)
 SI-08
 
 ช่วยเอา control id ไปใส่ใน slide ตามหัวข้อ และช่วย design ใหม่หน่อยให้เข้าใจง่าย เช่น control นี้มีกี่ control id และ มี control id อะไรบ้าง
+
+------
+
+
+ทำ work flow เรื่อง cloud configuration baseline โดยมีรายละเอียดดังนี้
+
+
+
+มีสิ่งที่เป็น user และ action
+
+ใช้งาน config baseline ตอน implement project ใหม่ เช่น สร้าง ec2 หรือ vpc ใหม่
+
+ใช้งานตอน review environment เดิม ว่ามีการเปลี่ยนแปลงไปจาก config เดิมหรือไม่
+
+ทำ work flow ขึ้นมาใหม่เป็น power point 
+
+
+
+มี 2 เอกสาร config baseline และ checklist ที่ใช้ในการตรวจสอบว่าเป็นไปตาม config baseline หรือไม่
