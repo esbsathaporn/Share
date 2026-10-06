@@ -1,0 +1,349 @@
+SW_NGAMWONGWAN#show running-config
+Building configuration...
+
+Current configuration : 6624 bytes
+!
+version 15.0
+no service pad
+service timestamps debug datetime localtime
+service timestamps log datetime localtime
+service password-encryption
+!
+hostname SW_NGAMWONGWAN
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$66av$jeIIVuVRiRJBzVfnb.gJM/
+!
+username networx privilege 15 secret 5 $1$Qic1$1JFzfgSgKgZV/6iKZW9eW.
+aaa new-model
+!
+!
+aaa authentication login ESB group tacacs+ local
+!
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone BKK 7 0
+system mtu routing 1500
+vtp mode transparent
+!
+!
+ip domain-name example.local
+!
+!
+crypto pki trustpoint TP-self-signed-3529892736
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3529892736
+ revocation-check none
+ rsakeypair TP-self-signed-3529892736
+!
+!
+crypto pki certificate chain TP-self-signed-3529892736
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33353239 38393237 3336301E 170D3933 30333031 30303031
+  31365A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 35323938
+  39323733 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100D67C A1469B7A B6854BE2 821AD76A 6FE20B54 3C1FBE5B 0A4BD03C FFC43793
+  E6A478FC 3C4A8D33 32EF550C F21A2494 25F392B9 70B07FCB 8E437282 9BAD5726
+  17A2C8B8 CF90A20C 7B5A3FC6 20B05317 FC7DF915 C5E95E88 85E026FB B8EEBC87
+  CA8FBAC5 095E0634 32F20B65 E3B00978 D58C2E31 62140839 E49AD30A 2199BA01
+  4E450203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603
+  551D2304 18301680 146AEE03 BE5A525F 57C637D5 09F1C6DC 23419C98 5F301D06
+  03551D0E 04160414 6AEE03BE 5A525F57 C637D509 F1C6DC23 419C985F 300D0609
+  2A864886 F70D0101 05050003 81810049 E7D082F1 1BAAA0B8 C51A0B94 2E8CAFD9
+  089A056F 6C8587CF 4217EBAF A3E28551 F919B689 136247D7 AEE38A56 B4DAE67A
+  617C6D94 C395F374 4398C27B A6A9F592 9986270C 7CC292CB F4F13AC8 9CC80A6B
+  4080BD36 FD451BD9 1BCFC5BD 4A900880 6542CA62 5126C47A 953BA062 3F99D8F8
+  C1BD75F5 F1CCC801 CF2BCF3A A2ACB1
+        quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+no spanning-tree optimize bpdu transmission
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 2,5,7,10
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 7
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 7
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description +++ ATA1 +++
+ switchport access vlan 10
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 2
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description +++ ATA2 +++
+ switchport access vlan 10
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description # ATA #
+ switchport access vlan 10
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description # ATA #
+ switchport access vlan 10
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description ++ New ATM ++
+ switchport access vlan 5
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description ++ New ATM ++
+ switchport access vlan 5
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description +++ RICOH +++
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description +++ SECOM +++
+ switchport access vlan 2
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description +++ Server +++
+ switchport access vlan 2
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan2
+ ip address 10.176.26.125 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.176.26.126
+no ip http server
+ip http secure-server
+access-list 61 permit 192.168.12.210
+snmp-server view NO_BAD_SNMP iso included
+snmp-server view NO_BAD_SNMP internet included
+snmp-server view NO_BAD_SNMP snmpUsmMIB excluded
+snmp-server view NO_BAD_SNMP snmpVacmMIB excluded
+snmp-server view NO_BAD_SNMP snmpCommunityMIB excluded
+snmp-server view NO_BAD_SNMP transmission.94 excluded
+snmp-server view NO_BAD_SNMP mib-2.34.9 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.35 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.95 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.130 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.219 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.252 excluded
+tacacs-server host 192.168.2.13 key 7 0205551F28561C361D1C5A4D
+tacacs-server directed-request
+!
+!
+!
+banner login ^C
+#######################################################################
+#                                                                     #
+#        E A S Y B U Y                 Maintained by : TRUE MNS       #
+#        =============              Telephone No. : 0-2900-9191 # 3   #
+#         SW_NGAMWONGWAN               Only authorized access user.   #
+#                                                                     #
+#######################################################################
+^C
+!
+line con 0
+ logging synchronous
+line vty 5 15
+!
+end
+
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#
+
+---------------------------
+
+SW_NGAMWONGWAN#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/23, Fa0/24, Gi0/1, Gi0/2
+2    VLAN0002                         active    Fa0/1, Fa0/4, Fa0/5, Fa0/6, Fa0/7, Fa0/8, Fa0/9, Fa0/10, Fa0/11, Fa0/13, Fa0/21, Fa0/22
+5    VLAN0005                         active    Fa0/17, Fa0/18
+7    VLAN0007                         active    Fa0/2, Fa0/3
+10   VLAN0010                         active    Fa0/1, Fa0/2, Fa0/3, Fa0/4, Fa0/5, Fa0/6, Fa0/7, Fa0/8, Fa0/9, Fa0/10, Fa0/11, Fa0/12, Fa0/13, Fa0/14, Fa0/15, Fa0/16, Fa0/19, Fa0/20
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+SW_NGAMWONGWAN#show ip int
+SW_NGAMWONGWAN#show ip interface bri
+SW_NGAMWONGWAN#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES NVRAM  administratively down down
+Vlan2                  10.176.26.125   YES NVRAM  up                    up
+FastEthernet0/1        unassigned      YES unset  up                    up
+FastEthernet0/2        unassigned      YES unset  down                  down
+FastEthernet0/3        unassigned      YES unset  down                  down
+FastEthernet0/4        unassigned      YES unset  down                  down
+FastEthernet0/5        unassigned      YES unset  down                  down
+FastEthernet0/6        unassigned      YES unset  down                  down
+FastEthernet0/7        unassigned      YES unset  down                  down
+FastEthernet0/8        unassigned      YES unset  down                  down
+FastEthernet0/9        unassigned      YES unset  down                  down
+FastEthernet0/10       unassigned      YES unset  down                  down
+FastEthernet0/11       unassigned      YES unset  down                  down
+FastEthernet0/12       unassigned      YES unset  down                  down
+FastEthernet0/13       unassigned      YES unset  administratively down down
+FastEthernet0/14       unassigned      YES unset  down                  down
+FastEthernet0/15       unassigned      YES unset  down                  down
+FastEthernet0/16       unassigned      YES unset  down                  down
+FastEthernet0/17       unassigned      YES unset  down                  down
+FastEthernet0/18       unassigned      YES unset  down                  down
+FastEthernet0/19       unassigned      YES unset  down                  down
+FastEthernet0/20       unassigned      YES unset  administratively down down
+FastEthernet0/21       unassigned      YES unset  down                  down
+FastEthernet0/22       unassigned      YES unset  down                  down
+FastEthernet0/23       unassigned      YES unset  down                  down
+FastEthernet0/24       unassigned      YES unset  down                  down
+GigabitEthernet0/1     unassigned      YES unset  down                  down
+GigabitEthernet0/2     unassigned      YES unset  down                  down
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#show int status
+Port      Name               Status       Vlan       Duplex  Speed Type
+Fa0/1                        connected    2          a-full  a-100 10/100BaseTX
+Fa0/2                        notconnect   7            auto   auto 10/100BaseTX
+Fa0/3                        notconnect   7            auto   auto 10/100BaseTX
+Fa0/4                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/5                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/6                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/7                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/8                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/9                        notconnect   2            auto   auto 10/100BaseTX
+Fa0/10                       notconnect   2            auto   auto 10/100BaseTX
+Fa0/11                       notconnect   2            auto   auto 10/100BaseTX
+Fa0/12    +++ ATA1 +++       notconnect   10           auto   auto 10/100BaseTX
+Fa0/13                       disabled     2            auto   auto 10/100BaseTX
+Fa0/14    +++ ATA2 +++       notconnect   10           auto   auto 10/100BaseTX
+Fa0/15    # ATA #            notconnect   10           auto   auto 10/100BaseTX
+Fa0/16    # ATA #            notconnect   10           auto   auto 10/100BaseTX
+Fa0/17    ++ New ATM ++      notconnect   5            auto   auto 10/100BaseTX
+Fa0/18    ++ New ATM ++      notconnect   5            auto   auto 10/100BaseTX
+Fa0/19    +++ RICOH +++      notconnect   10           auto   auto 10/100BaseTX
+Fa0/20                       disabled     10           auto   auto 10/100BaseTX
+Fa0/21    +++ SECOM +++      notconnect   2            auto   auto 10/100BaseTX
+Fa0/22    +++ Server +++     notconnect   2            auto   auto 10/100BaseTX
+Fa0/23    +++ Connect to Rou notconnect   1            auto   auto 10/100BaseTX
+Fa0/24    +++ Connect to Rou notconnect   1            auto   auto 10/100BaseTX
+Gi0/1     +++ Connect to Rou notconnect   1            auto   auto Not Present
+Gi0/2     +++ Connect to Rou notconnect   1            auto   auto Not Present
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#
+SW_NGAMWONGWAN#
+
+---------
+
