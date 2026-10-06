@@ -1,0 +1,238 @@
+SW_AMATA_CITY#sh run
+Building configuration...
+
+Current configuration : 5149 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+!
+hostname SW_AMATA_CITY
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$qG/c$irtbwoEMZ/JMcQqaZsAd50
+!
+username networx privilege 15 secret 5 $1$avUn$8Iv6jfxw5Ljd2/GEJO05./
+aaa new-model
+!
+!
+aaa authentication login ESB group tacacs+ local
+!
+!
+!
+aaa session-id common
+clock timezone BKK 7
+system mtu routing 1500
+vtp mode transparent
+ip subnet-zero
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 2,5,7,10 
+!
+!
+!
+interface FastEthernet0/1
+ description ++ PC BM ++
+ switchport access vlan 7
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description ++ PC KES ++
+ switchport access vlan 7
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport access vlan 7
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ switchport access vlan 2
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ switchport access vlan 2
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 2
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description +++ Area Manager +++
+ switchport access vlan 2
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 2
+ switchport voice vlan 10
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ description # New_ATM #
+ switchport access vlan 5
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description # New_ATM #
+ switchport access vlan 5
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ description +++ BH2 +++
+ switchport access vlan 2
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description +++ ATA/AVAYA +++
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description +++ RICOH +++
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description +++ Finger Print +++
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description +++ Server +++
+ switchport access vlan 2
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description +++ Connect to Router +++
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan2
+ ip address 10.160.12.125 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.160.12.126
+no ip http server
+no ip http secure-server
+access-list 1 permit 192.168.2.121
+access-list 61 permit 192.168.12.210
+snmp-server view NO_BAD_SNMP iso included
+snmp-server view NO_BAD_SNMP internet included
+snmp-server view NO_BAD_SNMP snmpUsmMIB excluded
+snmp-server view NO_BAD_SNMP snmpVacmMIB excluded
+snmp-server view NO_BAD_SNMP snmpCommunityMIB excluded
+snmp-server view NO_BAD_SNMP transmission.94 excluded
+snmp-server view NO_BAD_SNMP mib-2.34.9 excluded
+snmp-server view NO_BAD_SNMP ciscoFlashMIB excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.35 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.95 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.130 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.219 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.252 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.254 excluded
+snmp-server view NO_BAD_SNMP ciscoExperiment.997 excluded
+snmp-server community c1$C0sw1234 view NO_BAD_SNMP RO 1
+tacacs-server host 192.168.2.13 key 7 0205551F28561C361D1C5A4D
+tacacs-server directed-request
+!
+control-plane
+!
+banner login ^C
+#######################################################################
+#                                                                     #
+#        E A S Y B U Y                 Maintained by : TRUE MNS       #
+#        =============              Telephone No. : 0-2900-9191 # 3   #
+#         AMATA_CITY                 Only authorized access user.    #
+#                                                                     #
+#######################################################################
+^C
+!
+line con 0
+line vty 0 4
+ login authentication ESB
+ transport input ssh
+line vty 5 15
+ transport input ssh
+!
+ntp clock-period 36029088
+ntp server 192.168.3.247
+end
+
+SW_AMATA_CITY#exit
+
