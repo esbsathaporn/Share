@@ -31,3 +31,14 @@ ________________________________________________________________________________
  
 Zoom: DD-Review (Breakout room: Digital Solutions)
 Link: https://easybuy-co-th.zoom.us/j/82122199854?pwd=gsIguy8g7asZlygDiId26Ps4actXbW.1
+
+สร้าง flow การทำงานดังต่อไปนี้เป็นภาพ info graphic
+1. เราจะสร้างเอกสาร baseline ขึ้นมา จากนั้นเราจะมี checklist โดยมาจากเนื้อหาใน baseline แล้วเราจะนำเอกสารนั้นไปใช้ดังนี้
+    1.1 นำไปช้ตอน implement ใหม่ เช่นมีการสร้าง env ใหม่ หรือสร้าง vpc ใหม่
+    1.2 นำปใช้ตอน review env เดิมที่มีอยู่แล้ว
+    1.3 โดยเอา checklist ไปเช็ก และแยกว่าหากเป็น cloud เรามี bitdefender ในการตรวจสอบ
+    1.4 หากเป็น network เราจะใช้การ manual เช็กเอง
+2. สร้างโดยหลังจาก checklist เสร็จแล้วจะมีคน verify อีกทีว่าเป็นไปตามนั้นหรือไม่
+3. โดย env ตาม vpc จะมี 20 vpc เอกสารการ checklist จะมี 20 doc
+4. อยากได้ flow รูปแบบคล้ายๆไฟล์แนบ
+
