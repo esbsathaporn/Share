@@ -378,3 +378,265 @@ line vty 5 15
 ntp server 192.168.2.15
 end
 
+----------
+
+Building configuration...
+
+Current configuration : 5635 bytes
+!
+! Last configuration change at 21:50:00 BKK Thu Nov 12 2026 by networx
+! NVRAM config last updated at 21:50:05 BKK Thu Nov 12 2026 by networx
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+!
+hostname SWTIDC-R1-1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$179A$87L2D8nmxyZ8fw49V8rab1
+!
+username damigami secret 5 $1$ZkX0$S5UJmlUvkdYFCJZxmVkq9.
+username networx privilege 15 secret 5 $1$SPAP$dhxwvv.2ucUagpDr9Dg7C1
+aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone BKK 7 0
+switch 1 provision ws-c2960x-24ts-l
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+vtp mode off
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 2-5,8,24,65-66,112-115,175,201,204-205,211,221,230,270,501,701-702,713
+!
+vlan 714
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface FastEthernet0
+ no ip address
+!
+interface GigabitEthernet1/0/1
+ description Indoor-Connect(I03802A)
+ switchport access vlan 175
+ switchport mode access
+!
+interface GigabitEthernet1/0/2
+ description Indoor-Autodial(I01169A)
+ switchport access vlan 175
+ switchport mode access
+!
+interface GigabitEthernet1/0/3
+ description ENET A UMS-01
+ switchport access vlan 205
+ switchport mode access
+!
+interface GigabitEthernet1/0/4
+ description ENET A UMS-02
+ switchport access vlan 205
+ switchport mode access
+!
+interface GigabitEthernet1/0/5
+ description VPN-TRUE
+ switchport access vlan 175
+ switchport mode access
+!
+interface GigabitEthernet1/0/6
+ description SOC-TheCloud-15Mbps_I01994B
+ switchport access vlan 221
+ switchport mode access
+!
+interface GigabitEthernet1/0/7
+ description NCB_Move2SW-DR
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/8
+ description Veeam-300Mbps_I00031B
+ switchport trunk allowed vlan 211,230,702
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/9
+ description UMS-Test
+ switchport access vlan 205
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/10
+ description Indoor-Autodial(I01169A)
+ switchport access vlan 205
+ switchport mode access
+!
+interface GigabitEthernet1/0/11
+ description RT-SDWAN-AWN_9000488229
+ switchport trunk allowed vlan 3
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/12
+!
+interface GigabitEthernet1/0/13
+!
+interface GigabitEthernet1/0/14
+!
+interface GigabitEthernet1/0/15
+!
+interface GigabitEthernet1/0/16
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+ switchport access vlan 205
+ switchport mode access
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+ description Switch CCTV_Facescan
+ switchport trunk allowed vlan 113,114,713,714
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+!
+interface GigabitEthernet1/0/27
+ description TIDC-N3K-01_Eth1/3
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/28
+ description TIDC-N3K-02_Eth1/3
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan113
+ ip address 192.168.113.201 255.255.255.0
+!
+interface Vlan211
+ ip address 10.177.211.50 255.255.255.0
+!
+ip default-gateway 10.177.211.254
+no ip http server
+no ip http secure-server
+!
+!
+ip access-list extended vty-acl-in
+ permit tcp host 192.168.100.13 any eq 22
+ permit tcp host 192.168.100.17 any eq 22
+ permit tcp host 192.168.100.18 any eq 22
+ permit tcp host 192.168.100.22 any eq 22
+ permit tcp host 192.168.100.40 any eq 22
+ permit tcp host 192.168.100.68 any eq 22
+ permit tcp host 192.168.100.80 any eq 22
+ permit tcp host 192.168.100.99 any eq 22
+ permit tcp host 192.168.100.111 any eq 22
+ permit tcp host 192.168.100.201 any eq 22
+ permit tcp host 192.168.100.202 any eq 22
+ permit tcp host 192.168.100.203 any eq 22
+ permit tcp host 192.168.100.204 any eq 22
+ deny   ip any any
+!
+snmp-server view NO_BAD_SNMP iso included
+snmp-server view NO_BAD_SNMP internet included
+snmp-server view NO_BAD_SNMP snmpUsmMIB excluded
+snmp-server view NO_BAD_SNMP snmpVacmMIB excluded
+snmp-server view NO_BAD_SNMP snmpCommunityMIB excluded
+snmp-server view NO_BAD_SNMP transmission.94 excluded
+snmp-server view NO_BAD_SNMP mib-2.34.9 excluded
+snmp-server view NO_BAD_SNMP ciscoFlashMIB excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.35 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.95 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.130 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.219 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.252 excluded
+snmp-server view NO_BAD_SNMP ciscoMgmt.254 excluded
+snmp-server view NO_BAD_SNMP ciscoExperiment.997 excluded
+snmp-server community c1$C0sw1234 view NO_BAD_SNMP RO 1
+!
+!
+no vstack
+banner login ^CC
+#####################################################################
+#This system is the property of EASY BUY Public Company Limited.    #
+#WARNING:Unauthorized access to this system is forbidden and will be#
+#prosecuted by law. By accessing this system, you agree that your   #
+#actions may be monitored if unauthorized usage is suspected.       #
+#####################################################################
+^C
+!
+line con 0
+ session-timeout 9
+ logging synchronous
+line vty 0 4
+ exec-timeout 9 0
+ logging synchronous
+ login authentication ESB
+ transport input ssh
+line vty 5 15
+ exec-timeout 9 0
+ logging synchronous
+ login authentication ESB
+ transport input ssh
+!
+ntp server 192.168.2.15
+!
+end
+
+----------
+
